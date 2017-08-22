@@ -24,8 +24,28 @@ public class Fibonacci {
      * @throws IllegalArgumentException if the given index is less than zero
      */
     public static int atIndex(int i) throws IllegalArgumentException {
-        throw new NotImplementedException();
+       int fib0=0, fib1=1,fib2=0;
+       if (i<0)
+       {
+        	throw new IllegalArgumentException();
+       }	
+       
+       if ((i == 0) || (i == 1))
+    	   return 1;
+        else
+        {
+        	fib2 = fib1 + fib0;
+        	for(int j = 2; j<=i; j++)
+        	{
+        		fib0 = fib1;
+        		fib1 = fib2;
+        		fib2 = fib1 + fib0;
+        			
+        	}
+        	return fib2;	
+        }
     }
+    
 
     /**
      * Calculates a slice of the fibonacci sequence, starting from a given start index (inclusive) and
@@ -38,7 +58,20 @@ public class Fibonacci {
      *                                  given end is less than the given start
      */
     public static int[] slice(int start, int end) throws IllegalArgumentException {
-        throw new NotImplementedException();
+    	int[] arrSlice = new int[end-start];
+    	
+    	if ((start < 0) || (end < 0) || (end < start))
+    	{	
+    		throw new IllegalArgumentException();
+    	}	
+    	
+    	int j = 0;
+    	for(int i = start; i < end ; i++,j++)
+    	{
+    		arrSlice[j] = atIndex(i);
+    	}
+    	return arrSlice;
+    	
     }
 
     /**
@@ -49,6 +82,32 @@ public class Fibonacci {
      * @throws IllegalArgumentException if the given count is negative
      */
     public static int[] fibonacci(int count) throws IllegalArgumentException {
-        throw new NotImplementedException();
-    }
+      
+    	if (count < 0)
+    	{
+        	throw new IllegalArgumentException();
+    	}
+    	
+        int[] fibArr = new int[count];
+         
+        if (count == 1)
+        {
+        	fibArr[0] =  1;
+        	
+        }
+        else
+        {
+        	for(int j = 0 ; j< count; j++)
+        	{
+        		fibArr[j] = atIndex(j);
+        			
+        	}
+        		
+        }
+        return fibArr;
+ }
+    	
 }
+    
+
+

@@ -26,10 +26,19 @@ public class FizzBuzz {
      * @throws IllegalArgumentException if b is zero
      */
     public static boolean divides(int a, int b) throws IllegalArgumentException {
-        throw new NotImplementedException();
+       if( b != 0)
+       {   
+    	   if (a % b == 0 )
+    		   return true;
+    	   else
+    		   return false;
+       }
+       else
+    	   throw new IllegalArgumentException();
+       
     }
 
-    /**
+    /**  
      * Generates a divisibility message for a given number. Returns null if the given number is not divisible by 3 or 5.
      * Message formatting examples:
      * 1 -> null // not divisible by 3 or 5
@@ -41,7 +50,20 @@ public class FizzBuzz {
      * @return a message according to the format above, or null if n is not divisible by either 3 or 5
      */
     public static String message(int n) {
-        throw new NotImplementedException();
+        if ((n%3 != 0) && (n%5 != 0))
+        {
+        	return null;
+        }
+        else if((n%3 == 0 && n%5 != 0 ) )
+        {
+        	return n + ": Fizz";
+        }
+        else if((n%5 == 0) && (n%3 != 0))
+        {
+        	return n + ": Buzz";
+        }
+        else
+        	return n + ": FizzBuzz";
     }
 
     /**
@@ -55,15 +77,52 @@ public class FizzBuzz {
      * @throws IllegalArgumentException if the given end is less than the given start
      */
     public static String[] messages(int start, int end) throws IllegalArgumentException {
-        throw new NotImplementedException();
+        
+        if (end < start)
+        {
+        	throw new IllegalArgumentException();
+        }
+        
+        int j=0;
+        
+        String[] strArr= new String[end-start]; //String array for messages
+        for (int i =start; i<end; i++)
+        {
+        	if(message(i) != null)
+        	{  
+        			strArr[j] = message(i);
+        			j++;
+        			continue;
+        	}
+        		
+        }
+        String divArr[] = new String[j]; //String array for Divisibility messages to return
+        for(int index =0; index<j;index++)
+        {
+            divArr[index] = strArr[index];
+            	
+        }
+
+        return divArr;
     }
+
+    	
+    
+     
 
     /**
      * For this main method, iterate over the numbers 1 through 115 and print
      * the relevant messages to sysout
      */
     public static void main(String[] args) {
-        throw new NotImplementedException();
+    for(int i = 1 ; i<=115; i++)
+    {
+    	if (i%2 == 0)
+    		System.out.println("It is a even number");
+    	else
+    		System.out.println("It is a odd number");
     }
 
 }
+}
+
