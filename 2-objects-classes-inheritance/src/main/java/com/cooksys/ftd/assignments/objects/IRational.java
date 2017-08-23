@@ -56,10 +56,10 @@ interface IRational {
 	default IRational invert() throws IllegalStateException {
 		if(getNumerator() == 0)
 		{
-		throw new IllegalStateException();
+			throw new IllegalStateException();
 		}
-		 return new Rational(getDenominator(),getNumerator());
-		
+		return construct(getDenominator(),getNumerator());
+
 	}
 
 	/**
@@ -82,7 +82,7 @@ interface IRational {
 		 int n2 = that.getNumerator() * this.getDenominator();
 		 int n3 = n1 + n2;
 		 int n4 = this.getDenominator() * that.getDenominator();
-		 return new Rational(n3, n4);
+		 return construct(n3, n4);
 	}
 
 	/**
@@ -105,7 +105,7 @@ interface IRational {
 		 int n2 = that.getNumerator() * this.getDenominator();
 		 int n3 = n1 - n2;
 		 int n4 = this.getDenominator() * that.getDenominator();
-		 return new Rational(n3, n4);
+		 return construct(n3, n4);
 	
 	}
 
@@ -127,7 +127,7 @@ interface IRational {
 		}
 		int n1 = this.getNumerator() * that.getNumerator();
 		 int n2 = that.getDenominator() * this.getDenominator();
-		 return new Rational(n1, n2);
+		 return construct(n1, n2);
 	}
 	
 
@@ -149,6 +149,6 @@ interface IRational {
 		}
 		int n1 = this.getNumerator() * that.getDenominator();
 		 int n2 = this.getDenominator() * that.getNumerator();
-		 return new Rational(n1, n2);
+		 return construct(n1, n2);
 	}
 }

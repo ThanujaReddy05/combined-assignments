@@ -92,10 +92,13 @@ public class Rational implements IRational {
      */
     @Override
     public String toString() {
-    	if ((this.numerator < 0) || (this.denominator < 0))
-    		return "-" + this.numerator + "/" +  this.denominator;
+//    	int n = numerator;
+//        int d = denominator;
+//    	return ( (((n < 0) != (d < 0))? "-" : "") + n + "/" + d);
+    	if ((numerator < 0) != (denominator < 0))
+    		return "-" +Math.abs(numerator) + "/" + Math.abs(denominator);
     	else
-    		return  this.numerator + "/" + this.denominator;
+    		return  Math.abs(numerator) + "/" + Math.abs(denominator);
 
 }
     }
