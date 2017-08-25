@@ -76,13 +76,13 @@ interface IRational {
 	default IRational add(IRational that) throws IllegalArgumentException {
 		if(that == null)
 		{
-		throw new IllegalArgumentException();
+			throw new IllegalArgumentException();
 		}
-		 int n1 = this.getNumerator() * that.getDenominator();
-		 int n2 = that.getNumerator() * this.getDenominator();
-		 int n3 = n1 + n2;
-		 int n4 = this.getDenominator() * that.getDenominator();
-		 return construct(n3, n4);
+		int n1 = this.getNumerator() * that.getDenominator(); // (n1 * d2)
+		int n2 = that.getNumerator() * this.getDenominator(); //(n2 * d1)
+		int n3 = n1 + n2; //final numerator
+		int d = this.getDenominator() * that.getDenominator();// (d1 * d2)
+		return construct(n3, d);
 	}
 
 	/**
@@ -99,14 +99,14 @@ interface IRational {
 	default IRational sub(IRational that) throws IllegalArgumentException {
 		if(that == null)
 		{
-		throw new IllegalArgumentException();
+			throw new IllegalArgumentException();
 		}
-		int n1 = this.getNumerator() * that.getDenominator();
-		 int n2 = that.getNumerator() * this.getDenominator();
-		 int n3 = n1 - n2;
-		 int n4 = this.getDenominator() * that.getDenominator();
-		 return construct(n3, n4);
-	
+		int n1 = this.getNumerator() * that.getDenominator(); // (n1 * d2)
+		int n2 = that.getNumerator() * this.getDenominator(); //(n2 * d1)
+		int n3 = n1 - n2; //final numerator
+		int n4 = this.getDenominator() * that.getDenominator(); // (d1 * d2)
+		return construct(n3, n4);
+
 	}
 
 	/**
@@ -123,13 +123,13 @@ interface IRational {
 	default IRational mul(IRational that) throws IllegalArgumentException {
 		if(that == null)
 		{
-		throw new IllegalArgumentException();
+			throw new IllegalArgumentException();
 		}
-		int n1 = this.getNumerator() * that.getNumerator();
-		 int n2 = that.getDenominator() * this.getDenominator();
-		 return construct(n1, n2);
+		int n = this.getNumerator() * that.getNumerator(); // (n1 * n2)
+		int d = that.getDenominator() * this.getDenominator(); // (d1 * d2)
+		return construct(n, d);
 	}
-	
+
 
 	/**
 	 * division of rational values
@@ -145,10 +145,10 @@ interface IRational {
 	default IRational div(IRational that) throws IllegalArgumentException {
 		if(that == null)
 		{
-		throw new IllegalArgumentException();
+			throw new IllegalArgumentException();
 		}
-		int n1 = this.getNumerator() * that.getDenominator();
-		 int n2 = this.getDenominator() * that.getNumerator();
-		 return construct(n1, n2);
+		int n = this.getNumerator() * that.getDenominator(); // (n1 * d2)
+		int d = this.getDenominator() * that.getNumerator(); // (d1 * n2)
+		return construct(n, d);
 	}
 }
