@@ -11,10 +11,11 @@ public class Student {
     @XmlAttribute
     private String lastName;
 
+   
     @XmlElement(name = "favorite-ide")
     private String favoriteIDE;
 
-    @XmlElement(name = "favorite-language")
+    @XmlElement(name = "favorite-languag")
     private String favoriteLanguage;
 
     @XmlElement(name = "favorite-paradigm")
@@ -62,12 +63,12 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", favoriteIDE='" + favoriteIDE + '\'' +
-                ", favoriteLanguage='" + favoriteLanguage + '\'' +
-                ", favoriteParadigm='" + favoriteParadigm + '\'' +
-                '}';
+        return "Student" + "\n" + "{" + "\n" +
+                "\t" + "firstName = " + firstName + '\n' +
+                "\t" + "lastName = " + lastName + '\n' +
+                "\t" + "favoriteIDE = " + favoriteIDE + '\n' +
+                "\t" + "favoriteLanguage = " + favoriteLanguage + '\n' +
+                "\t" + "favoriteParadigm = " + favoriteParadigm + '\n' +
+                "}";
     }
 }

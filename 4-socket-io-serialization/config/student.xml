@@ -1,1 +1,5 @@
-<student/>
+<?xml version="1.0"?>
+<student firstName="Thanuja" lastName="Reddy">
+	<favorite-ide>Eclipse</favorite-ide>
+	<favorite-languag>Java</favorite-languag>
+	<favorite-paradigm>OO</favorite-paradigm></student>
