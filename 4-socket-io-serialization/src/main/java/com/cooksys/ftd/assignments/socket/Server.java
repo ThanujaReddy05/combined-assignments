@@ -3,6 +3,8 @@ package com.cooksys.ftd.assignments.socket;
 import com.cooksys.ftd.assignments.socket.model.Config;
 import com.cooksys.ftd.assignments.socket.model.Student;
 
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -61,7 +63,7 @@ public class Server extends Utils {
 
 		//create server socket
 		ServerSocket server = new ServerSocket(port);
-		server.setSoTimeout(60*60*5);
+//		server.setSoTimeout(60*60*5);
 		Socket client = server.accept(); // server is ready for client
 
 		//Server unmarshalls the student object by using studentFilePath
@@ -73,13 +75,10 @@ public class Server extends Utils {
 		Marshaller stdMarsh1 = jaxbss.createMarshaller();
 
 		//sending xml file to client 
-		DataOutputStream toClient = new DataOutputStream(client.getOutputStream());
-		stdMarsh1.marshal(student, toClient);
-		PrintWriter outputStream = new PrintWriter(client.getOutputStream(),true);
-		outputStream.println();
-		outputStream.flush();
-		client.close();
+		stdMarsh1.marshal(student, client.getOutputStream());		
+
 		server.close();
+		client.close();
 
 
 	}

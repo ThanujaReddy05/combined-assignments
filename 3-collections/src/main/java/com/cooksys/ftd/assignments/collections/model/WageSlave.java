@@ -52,10 +52,7 @@ public class WageSlave implements Capitalist {
 	 */
 	@Override
 	public FatCat getParent() {
-		if(hasParent())
-			return owner;
-		else 
-			return null;
+			return this.owner;
 
 	}
 
@@ -96,9 +93,7 @@ public class WageSlave implements Capitalist {
 		return num;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.cooksys.ftd.assignments.collections.model.Capitalist#root()
-	 */
+	
 	//	@Override
 	public int code() {
 		if(!(hasParent()))

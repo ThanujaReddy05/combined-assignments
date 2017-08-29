@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
 <config>
-	<local port="4455"></local><remote host="localhost" port="4455"></remote><student-file-path>config\student.xml</student-file-path>
+	<local port="4545"></local><remote host="10.1.1.239" port="4545"></remote><student-file-path>config\student.xml</student-file-path>
 	</config>

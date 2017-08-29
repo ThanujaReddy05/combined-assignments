@@ -16,7 +16,7 @@ import java.util.function.Consumer;
 
 public class MegaCorp implements Hierarchy<Capitalist, FatCat> {
 
-	private HashMap<Integer, Set<Capitalist>> mapTree = new HashMap<>();
+	private TreeMap<Integer, Set<Capitalist>> mapTree = new TreeMap<>();
 	private Integer treeCode;
 
 
@@ -44,7 +44,7 @@ public class MegaCorp implements Hierarchy<Capitalist, FatCat> {
 
 		if(capitalist != null ) //if element to add is not null then go ahead and add to hierarchy
 		{	
-			treeCode = capitalist.code();
+			treeCode = capitalist.hashCode();
 
 			if(!has(capitalist)) //if element is present in the hierarchy return false go ahead for adding 
 			{

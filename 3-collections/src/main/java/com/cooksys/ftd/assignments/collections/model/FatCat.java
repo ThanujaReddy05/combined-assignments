@@ -52,10 +52,8 @@ public class FatCat implements Capitalist {
 	 */
 	@Override
 	public FatCat getParent() {
-		if(hasParent())
-			return owner;
-		else 
-			return null;
+			return this.owner;
+
 	}
 
 

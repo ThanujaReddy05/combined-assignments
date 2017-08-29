@@ -18,6 +18,8 @@ public interface Capitalist extends Hierarchical<Capitalist, FatCat> {
      * @return the hashCode of the root
      */
     int code();
+    int hashCode();
+
     
     
 }
